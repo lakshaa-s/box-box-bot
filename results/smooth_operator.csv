@@ -1,0 +1,2 @@
+driver,checkpoint,elapsed_mins,avg_reward,best_reward,worst_reward,avg_steps,avg_steering
+smooth_operator,5000,1.3,-737.49,-732.75,-740.01,1000.0,0.1329

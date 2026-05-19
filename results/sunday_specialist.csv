@@ -1,0 +1,2 @@
+driver,checkpoint,elapsed_mins,avg_reward,best_reward,worst_reward,avg_steps,avg_steering
+sunday_specialist,5000,1.1,-168.0,-70.54,-220.6,276.7,0.0127

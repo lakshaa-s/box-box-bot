@@ -1,0 +1,45 @@
+# ── Models ────────────────────────────────────────────────────────────────────
+# Trained model checkpoints are large — don't commit them
+models/
+
+# ── Replays ───────────────────────────────────────────────────────────────────
+# GIFs can be 10MB+ each
+replays/
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+logs/
+*.log
+nohup.out
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# ── Environments ──────────────────────────────────────────────────────────────
+.env
+.venv
+env/
+venv/
+
+# ── macOS ─────────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ── VS Code ───────────────────────────────────────────────────────────────────
+.vscode/
+
+# ── Results ───────────────────────────────────────────────────────────────────
+# Uncomment this if you don't want to commit results CSVs
+# results/
