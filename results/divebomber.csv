@@ -1,2 +1,5 @@
 driver,checkpoint,elapsed_mins,avg_reward,best_reward,worst_reward,avg_steps,avg_steering
-divebomber,5000,1.2,-129.81,-95.43,-155.77,345.7,0.0137
+divebomber,100000,21.1,491.01,655.36,244.11,1000.0,0.0493
+divebomber,300000,40.3,-77.22,156.43,-217.08,1000.0,0.2072
+divebomber,600000,54.1,-51.36,68.81,-146.35,1000.0,0.7589
+divebomber,1000000,72.7,544.94,1103.2,-95.86,1000.0,0.8163

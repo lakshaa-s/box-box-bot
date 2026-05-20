@@ -1,0 +1,5 @@
+POS,driver,number,checkpoint,total_reward,steps,avg_steering,avg_throttle,avg_brake,smoothness
+1,divebomber,33,1000000,1229.92,800,0.6826,0.3661,0.0065,1.0
+2,sunday_specialist,1,1000000,-540.53,800,1.0,0.9962,0.0,1.0
+3,smooth_operator,55,1000000,-630.0,800,1.0,0.0,0.0,1.0
+4,tyre_whisperer,44,1000000,-950.21,800,1.0,0.0,0.0,1.0

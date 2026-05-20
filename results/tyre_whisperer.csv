@@ -1,2 +1,5 @@
 driver,checkpoint,elapsed_mins,avg_reward,best_reward,worst_reward,avg_steps,avg_steering
-tyre_whisperer,5000,1.1,-1154.66,-1150.09,-1160.29,1000.0,0.1166
+tyre_whisperer,100000,17.9,-1191.02,-1190.67,-1191.55,1000.0,1.0
+tyre_whisperer,300000,36.0,-1191.41,-1191.24,-1191.57,1000.0,1.0
+tyre_whisperer,600000,54.0,-1191.19,-1190.67,-1191.59,1000.0,1.0
+tyre_whisperer,1000000,71.1,-1190.94,-1190.7,-1191.29,1000.0,1.0
