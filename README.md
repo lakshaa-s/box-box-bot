@@ -55,7 +55,7 @@ box-box-bot/
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/yourusername/box-box-bot.git
+git clone https://github.com/lakshaa-s/box-box-bot.git
 cd box-box-bot
 ```
 
@@ -103,7 +103,43 @@ Open `notebooks/explore.ipynb` in VS Code or JupyterLab. Cells 10 and 11 load th
 
 ## 📊 Results
 
-*Training in progress — results to follow.*
+All four drivers trained for 1 million steps across 4 parallel environments. Total training time: ~12 hours on a MacBook Air.
+
+### 🏆 Championship Standings — 1,000,000 steps
+
+| POS | Driver | Total Reward | Avg Steering | Avg Throttle | Outcome |
+|-----|--------|-------------|--------------|--------------|---------|
+| 1 | 💥 #33 Divebomber | **+1229** | 0.68 | 0.37 | ✅ Learned to drive |
+| 2 | 🏆 #1 Sunday Specialist | -540 | 1.00 | 0.99 | ❌ Full throttle, full lock — spinning |
+| 3 | 🎸 #55 Smooth Operator | -630 | 1.00 | 0.00 | ❌ Locked and stationary |
+| 4 | 🧘 #44 Tyre Whisperer | -950 | 1.00 | 0.00 | ❌ Locked and stationary |
+
+### 🔍 What happened
+
+**Divebomber won — and it's not even close.** With a forgiving off-track penalty and a high speed bonus, it was free to explore the environment without being punished into paralysis. By 1M steps it was genuinely navigating the track, scoring +1229 in the final evaluation.
+
+**The other three suffered policy collapse** — steering locked at 1.0 from around 100k steps and never recovered. But the data reveals they collapsed in interestingly different ways:
+
+- **Sunday Specialist** — full throttle (0.9962), full steering lock. At least it had its foot down. Spinning aggressively.
+- **Smooth Operator** — full lock, zero throttle, zero brake. Completely inert. The combination of smooth bonus and off-track penalty was so punishing it learned that doing nothing was safer than trying.
+- **Tyre Whisperer** — same as Smooth Operator. Gave up entirely. Ironically the worst result despite the most cautious personality.
+
+**The irony is very F1.** The reckless driver who doesn't care about tyres or track limits learned the most. The careful, measured drivers couldn't figure out how to move.
+
+### 📈 Divebomber — Training Arc
+
+| Checkpoint | Avg Reward | Best Lap | Worst Lap | Avg Steering |
+|------------|-----------|----------|-----------|--------------|
+| 100k | +491 | +655 | +244 | 0.05 |
+| 300k | -77 | +156 | -217 | 0.21 |
+| 600k | -51 | +69 | -146 | 0.76 |
+| 1M | **+544** | **+1103** | -96 | 0.82 |
+
+The dip from +491 to -77 between 100k and 300k is classic RL — the agent discovered an early exploit (staying near track tiles without moving), got pushed off it as training continued, then had to relearn properly. The steering rising from 0.05 → 0.82 over training shows it getting progressively more aggressive as it found the racing line.
+
+### 🔧 What's next — v2
+
+The three collapsed drivers need a **curriculum learning** approach — start with a plain, unmodified reward signal so the agent learns basic control first, then gradually introduce the personality shaping once it can actually steer. Applying heavy penalties before the agent understands steering is like telling a driver to save their tyres before they've learned to drive.
 
 ---
 
